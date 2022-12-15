@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('provincia', function (Blueprint $table) {
-            $table->primary('id_provincia');
+        Schema::create('provincias', function (Blueprint $table) {
+            $table->string('id_provincia',50)->primary();
             $table->string('nombre_provincia',100);
-            //$table->timestamps(); //genera 2 campos, en que fecha se registro y edito este registro
+            
+            //$table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('provincia');
+        Schema::dropIfExists('provincias');
     }
 };

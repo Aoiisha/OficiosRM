@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comuna', function (Blueprint $table) {
-            $table->primary('id_comuna');
+        Schema::create('comunas', function (Blueprint $table) {
+            $table->string('id_comuna',50)->primary();
             $table->string('nombre_comuna',100);
-            $table->unsigned('id_provincia');
-            $table->foreign('id_provincia')->references('id_provincia')->on('provincia')->onDelete('cascade');
+            $table->string('id_provincia',50)->nullable;
 
+            $table->foreign('id_provincia')->references('id_provincia')->on('provincias');
+
+            //$table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comuna');
+        Schema::dropIfExists('comunas');
     }
 };

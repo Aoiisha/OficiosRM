@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('usuario', function (Blueprint $table) {
-            $table->primary('rut');
-            $table->string('nombres',50);
-            $table->string('apellidos',50);
-            $table->string('email',50)->unique();
-            $table->unsigned('id_comuna',50);
-            $table->foreign('id_comuna')->references('id_comuna')->on('comuna');
+        Schema::create('trabajadores', function (Blueprint $table) {
+            $table->id('N_asociado');
+            $table->bigInteger('cod_usuario')->unsigned()->unique();
+            $table->string('id_trabajo');
+
+            //$table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('id')->references('id')->on('users');
         });
     }
 
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuario');
+        Schema::dropIfExists('trabajadores');
     }
 };

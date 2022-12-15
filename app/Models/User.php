@@ -17,6 +17,13 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $attributes = [
+        'estado' => 0,
+        //'fecha_registro'=> date_default_timezone_get(),
+    ];
+
+    protected $dates = ['deleted_at']; //para el soft deletes
+
     protected $fillable = [
         'name',
         'email',
