@@ -14,8 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('trabajos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('id_trabajo',50)->primary();
+            $table->string('nombre_trabajo',100);
+            $table->string('categoria_lab',100);
+
+            //$table->timestamps();
+            $table->softDeletes();
         });
     }
 

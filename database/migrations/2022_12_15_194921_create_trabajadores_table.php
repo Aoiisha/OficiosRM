@@ -14,13 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('trabajadores', function (Blueprint $table) {
-            $table->id('N_asociado');
-            $table->bigInteger('cod_usuario')->unsigned()->unique();
-            $table->string('id_trabajo');
+            $table->string('N_asociado',50)->primary();
+            $table->bigInteger('id')->unsigned()->unique();
+            $table->string('id_trabajo')->nullable;
 
             //$table->timestamps();
             $table->softDeletes();
 
+            $table->foreign('id_trabajo')->references('id_trabajo')->on('trabajos');
             $table->foreign('id')->references('id')->on('users');
         });
     }

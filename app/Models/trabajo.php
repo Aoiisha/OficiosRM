@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class trabajo extends Model
 {
-    use HasFactory;
+    use HasFactory,softDeletes;
+    protected $table = 'trabajos'; //vinculacion a tabla
+    protected $primaryKey = 'id_trabajo';
+    public $incrementing = false;
+    public $timeStamp = false;
+    protected $keyTypr = 'string';
+
+    protected $dates = ['deleted_at']; //para el soft deletes
 }
