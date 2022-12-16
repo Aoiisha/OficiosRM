@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//ejemplo controller
+use App\Models\tipoDocumento;
 
-class HomeController extends Controller
+class tipoDocumentoController extends Controller
 {
     //
 }
+

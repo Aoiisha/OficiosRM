@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//ejemplo controller
+use App\Models\travajo;
 
-class HomeController extends Controller
+class trabajoController extends Controller
 {
     //
 }
