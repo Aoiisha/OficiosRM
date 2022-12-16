@@ -6,15 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
-
-class Datos{
-    public $cod_usuario;
-    public $cod_trabajador;
-    public $cod_ofertante;
-
-    public function __construct($cod_ofertante, $cod_trabajador, $cod_usuario){}
-}
-
 class UsersController extends Controller
 {
     public function getUsuarios(){
